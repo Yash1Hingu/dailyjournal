@@ -33,9 +33,9 @@ app.get("/compose",function(req,res) {
 
 app.post("/compose",function(req,res) {
   const text = req.body.blogText;
-  console.log(text);
+  const title = req.body.blogTitle;
+  console.log(title+" "+text);
 })
-
 
 
 

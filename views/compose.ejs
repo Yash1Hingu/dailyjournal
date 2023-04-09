@@ -1,7 +1,14 @@
 <%- include("paritals/header") -%>
-<h1>Compose</h1>
-<form action="/compose" method="post">
-    <input type="text" name="blogText" autocomplete="off">
-    <button type="submit" name="publish">Publish</button>
-</form>
-<%- include("paritals/footer") -%>
+    <h1>Compose</h1>
+    <form action="/compose" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="blogTitle" class="form-control" id="title"  autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="blog" class="form-label">Blog</label>
+            <textarea name="blogText"  class="form-control" id="blog" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" name="publish"  class="btn btn-primary" style="margin-top: 15px;">Publish</button>
+    </form>
+    <%- include("paritals/footer") -%>
