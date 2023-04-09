@@ -1,4 +1,8 @@
 <%- include("paritals/header") -%>
 <h1>Home</h1>
 <p><%= homeContent %></p>
+<% for(let i = 0;i < posts.length;i++){ %>
+    <h1><%= posts[i].title %></h1>
+    <p><%= posts[i].text %></p>
+<% } %>
 <%- include("paritals/footer") -%>
