@@ -32,9 +32,11 @@ app.get("/compose",function(req,res) {
 })
 
 app.post("/compose",function(req,res) {
-  const text = req.body.blogText;
-  const title = req.body.blogTitle;
-  console.log(title+" "+text);
+  const post = {
+    title : req.body.blogTitle,
+    text : req.body.blogText
+  }
+  console.log(post.title+" "+post.text);
 })
 
 
