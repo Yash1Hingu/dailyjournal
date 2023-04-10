@@ -31,6 +31,15 @@ app.get("/compose",function(req,res) {
   res.render("compose");
 })
 
+app.get("/posts/:topic",function(req,res) {
+  const topicName = req.params.topic;
+  posts.forEach(function(post){
+    if(topicName === post.title){
+      console.log("metched found");
+    }
+  })
+})
+
 app.post("/compose",function(req,res) {
   const post = {
     title : req.body.blogTitle,
