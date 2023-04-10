@@ -2,11 +2,14 @@
 <h1>Home</h1>
 <p><%= homeContent %></p>
 <% posts.forEach(function(blog){ %>
-    
+
     <h1><%= blog.title %></h1>
 
     <% if(blog.text.length > 100) { %>
-        <p><%= blog.text.substr(0,100) + "..." %></p>
+        <p><%= blog.text.substr(0,100) + "..." %>
+            <a href=<%= "/posts/"+ blog.routetitle %> >show more</a>
+        </p>
+        
     <% } else { %>
     <p><%= blog.text %></p>
     <% } %>

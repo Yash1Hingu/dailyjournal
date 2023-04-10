@@ -34,24 +34,26 @@ app.get("/compose",function(req,res) {
 
 app.get("/posts/:topic",function(req,res) {
   const topicName = req.params.topic;
-
+  let found = false;
   posts.forEach(function(post){
-
-    const postTitle = lodash.kebabCase(post.title);
-
+    const postTitle = post.routetitle;
     if(topicName === postTitle){
       res.render("post",{blogTitle : post.title,blogContent : post.text});
-    } else {
-      res.render("post",{blogTitle : "404",blogContent : "Page Not Found"});
-    }
-
+      found = true;
+    } 
   })
+  
+  if(!found) {
+    res.render("post",{blogTitle : "404",blogContent : "Page Not Found"});
+  }
+  
 })
 
 app.post("/compose",function(req,res) {
   const post = {
     title : req.body.blogTitle,
-    text : req.body.blogText
+    text : req.body.blogText,
+    routetitle : lodash.kebabCase(req.body.blogTitle)
   }
   posts.push(post);
   res.redirect("/");
