@@ -40,9 +40,9 @@ app.get("/posts/:topic",function(req,res) {
     const postTitle = lodash.kebabCase(post.title);
 
     if(topicName === postTitle){
-      console.log("metched found");
+      res.render("post",{blogTitle : post.title,blogContent : post.text});
     } else {
-      console.log("Not metched found");
+      res.render("post",{blogTitle : "404",blogContent : "Page Not Found"});
     }
 
   })
