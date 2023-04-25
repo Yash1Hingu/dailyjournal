@@ -5,13 +5,13 @@
 
     <h1><%= blog.title %></h1>
 
-    <% if(blog.text.length > 100) { %>
-        <p><%= blog.text.substr(0,100) + "..." %>
-            <a href="/posts/<%= blog.title %>">Read more</a>
+    <% if(blog.content.length > 100) { %>
+        <p><%= blog.content.substr(0,100) + "..." %>
+            <a href="/posts/<%= blog._id %>">Read more</a>
         </p>
         
     <% } else { %>
-    <p><%= blog.text %></p>
+    <p><%= blog.content %></p>
     <% } %>
 
 <%});%>
